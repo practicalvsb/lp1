@@ -1,0 +1,27 @@
+#page replacement
+
+def fifo(ps, msize):
+    mptr , miss , hit = 0,0,0
+    memory = [-1 for i in range(msize)]
+    for i in ps:
+        flag = 0 
+        for j in memory :
+            if(j==int(i)):
+                hit += 1 
+                flag = 1 
+                break
+        if(flag == 0 ):
+            miss += 1 
+            memory[mptr] = int(i)
+            mptr +=1 
+            if(mptr == msize):
+                mptr = 0 
+        print(memory)
+        print("hits = ",hit , " miss = ",miss)
+def main():
+    x = input("enter page string : ")
+    m = int(input("enter the size of memory : "))
+    fifo(x,m)
+main()
+
+
